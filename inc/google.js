@@ -95,11 +95,28 @@ async function translate(word, lang) {
     }      
 }
 
-module.exports = async (word, { from, to }) => {
+module.exports = Object.assign(async (word, { from, to }) => {
     let lang = {
         from: from || 'auto',
         to: to || 'zh'
     };
 
     return await translate(word, lang);
-};
+}, {
+    auto: 'auto', 
+    sq: 'sq', ar: 'ar', am: 'am', az: 'az', ga: 'ga', et: 'et', or: 'or', eu: 'eu', 
+    be: 'be', bg: 'bg', is: 'is', pl: 'pl', bs: 'bs', fa: 'fa', af: 'af', tt: 'tt', 
+    da: 'da', de: 'de', ru: 'ru', fr: 'fr', tl: 'tl', fi: 'fi', fy: 'fy', km: 'km', 
+    ka: 'ka', gu: 'gu', kk: 'kk', ht: 'ht', ko: 'ko', ha: 'ha', nl: 'nl', ky: 'ky', 
+    gl: 'gl', ca: 'ca', cs: 'cs', kn: 'kn', co: 'co', hr: 'hr', ku: 'ku', la: 'la', 
+    lv: 'lv', lo: 'lo', lt: 'lt', lb: 'lb', rw: 'rw', ro: 'ro', mg: 'mg', mt: 'mt', 
+    mr: 'mr', ml: 'ml', ms: 'ms', mk: 'mk', mi: 'mi', mn: 'mn', bn: 'bn', my: 'my', 
+    hmn: 'hmn', xh: 'xh', zu: 'zu', ne: 'ne', no: 'no', pa: 'pa', pt: 'pt', ps: 'ps', 
+    ny: 'ny', ja: 'ja', sv: 'sv', sm: 'sm', sr: 'sr', st: 'st', si: 'si', eo: 'eo', 
+    sk: 'sk', sl: 'sl', sw: 'sw', gd: 'gd', ceb: 'ceb', so: 'so', tg: 'tg', te: 'te', 
+    ta: 'ta', th: 'th', tr: 'tr', tk: 'tk', cy: 'cy', ug: 'ug', ur: 'ur', uk: 'uk', 
+    uz: 'uz', es: 'es', iw: 'iw', el: 'el', haw: 'haw', sd: 'sd', hu: 'hu', sn: 'sn', 
+    hy: 'hy', ig: 'ig', it: 'it', yi: 'yi', hi: 'hi', su: 'su', id: 'id', jw: 'jw', 
+    en: 'en', yo: 'yo', vi: 'vi', 'zh-TW': 'zh-TW', 'zh-CN': 'zh-CN', zh: 'zh',
+    'zh-Hans': 'zh-Hans', 'zh-Hant': 'zh-Hant', 
+});
