@@ -54,7 +54,7 @@ async function translate(word, lang) {
         if (lang.from == 'AUTO') lang.from = translate.type.split('2')[0];
         if (lang.to == 'AUTO') lang.from = translate.type.split('2')[1];
 
-        let result = translate.translateResult[0].map(t => t.tgt).join('');
+        let result = translate.translateResult.map(r => r.map(t => t.tgt).join('')).join('\n');
         let candidate = translate.smartResult ? translate.smartResult.entries.filter(t => !!t) : [];
         candidate = candidate.concat(translate.translateResult.slice(1).map(t => t.tgt));
         return {
