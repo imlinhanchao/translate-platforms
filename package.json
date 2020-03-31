@@ -14,7 +14,9 @@
     "translate",
     "api",
     "google",
-    "microsoft"
+    "microsoft",
+    "baidu",
+    "youdao"
   ],
   "author": "Hancel.Lin",
   "license": "MIT",
