@@ -1,4 +1,4 @@
-# Translate.API
+# Translate Platforms
 A node module to translate multiple platforms.
 
 ## Installation

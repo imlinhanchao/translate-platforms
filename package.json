@@ -1,6 +1,6 @@
 {
   "name": "translate-platforms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Translation API from multiple platforms.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imlinhanchao/translate-api.git"
+    "url": "git+https://github.com/imlinhanchao/translate-platforms.git"
   },
   "keywords": [
     "translate",
@@ -21,9 +21,9 @@
   "author": "Hancel.Lin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/imlinhanchao/translate-api/issues"
+    "url": "https://github.com/imlinhanchao/translate-platforms/issues"
   },
-  "homepage": "https://github.com/imlinhanchao/translate-api#readme",
+  "homepage": "https://github.com/imlinhanchao/translate-platforms#readme",
   "dependencies": {
     "got": "^10.7.0",
     "tough-cookie": "^3.0.0"
