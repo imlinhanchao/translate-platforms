@@ -1,0 +1,28 @@
+{
+  "name": "translate-api",
+  "version": "0.0.1",
+  "description": "Translation API for major platforms",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imlinhanchao/translate-api.git"
+  },
+  "keywords": [
+    "translate",
+    "api",
+    "google",
+    "microsoft"
+  ],
+  "author": "Hancel.Lin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imlinhanchao/translate-api/issues"
+  },
+  "homepage": "https://github.com/imlinhanchao/translate-api#readme",
+  "dependencies": {
+    "got": "^10.7.0"
+  }
+}
