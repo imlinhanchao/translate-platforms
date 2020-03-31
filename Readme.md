@@ -3,7 +3,7 @@ A node module to translate multiple platforms.
 
 ## Installation
 ```bash
-npm install translate.api
+npm install translate-platforms
 ```
 
 ## Usage
