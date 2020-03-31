@@ -1,7 +1,7 @@
 {
   "name": "translate.api",
   "version": "0.0.1",
-  "description": "Translation API for major platforms",
+  "description": "Translation API from multiple platforms.",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
