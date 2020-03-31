@@ -71,7 +71,7 @@ async function translate(word, lang) {
 module.exports = Object.assign(async (word, { from, to }) => {
     let lang = {
         from: from || 'AUTO',
-        to: to || 'AUTO'
+        to: to || 'zh'
     };
 
     return await translate(word, lang);
