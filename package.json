@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/imlinhanchao/translate-api#readme",
   "dependencies": {
-    "got": "^10.7.0"
+    "got": "^10.7.0",
+    "tough-cookie": "^3.0.0"
   }
 }

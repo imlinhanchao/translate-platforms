@@ -108,3 +108,5 @@ dist
 
 # Test file
 .test
+
+package-lock.json
