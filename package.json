@@ -1,5 +1,5 @@
 {
-  "name": "translate-api",
+  "name": "translate.api",
   "version": "0.0.1",
   "description": "Translation API for major platforms",
   "main": "index.js",
