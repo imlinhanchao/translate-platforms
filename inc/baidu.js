@@ -140,12 +140,10 @@ module.exports = Object.assign(async (word, { from, to }) => {
 
     return await translate(word, lang);
 }, {
-    auto: '', 
-    af: 'af', ar: 'ar', bg: 'bg', bn: 'bn', bs: 'bs', ca: 'ca', cs: 'cs', cy: 'cy', da: 'da', 
-    de: 'de', el: 'el', en: 'en', es: 'es', et: 'et', fa: 'fa', fi: 'fi', fr: 'fr', he: 'he', 
-    hi: 'hi', hr: 'hr', ht: 'ht', hu: 'hu', id: 'id', is: 'is', it: 'it', ja: 'ja', ko: 'ko', 
-    lt: 'lt', lv: 'lv', ms: 'ms', mt: 'mt', mww: 'mww', nb: 'nb', nl: 'nl', pl: 'pl', pt: 'pt', 
-    ro: 'ro', ru: 'ru', sk: 'sk', sl: 'sl', 'sr-Latn': 'sr-Latn', sv: 'sv', sw: 'sw', ta: 'ta', 
-    th: 'th', 'tlh-Latn': 'tlh-Latn', tr: 'tr', uk: 'uk', ur: 'ur', vi: 'vi', 
-    'zh-Hans': 'zh-Hans', 'zh-Hant': 'zh-Hant', zh: 'zh', 'zh-TW': 'zh-TW', 'zh-CN': 'zh-CN'
+    auto: 'auto', 
+    ara: 'ara', est: 'est', bul: 'bul', pl: 'pl', dan: 'dan', de: 'de', 
+    ru: 'ru', fra: 'fra', fin: 'fin', kor: 'kor', nl: 'nl', cs: 'cs', 
+    rom: 'rom', pt: 'pt', jp: 'jp', swe: 'swe', slo: 'slo', th: 'th', 
+    wyw: 'wyw', spa: 'spa', el: 'el', hu: 'hu', zh: 'zh', en: 'en', 
+    it: 'it', vie: 'vie', yue: 'yue', cht: 'cht'
 });
