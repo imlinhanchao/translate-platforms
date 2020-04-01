@@ -1,5 +1,5 @@
 # Translate Platforms
-A node module to translate multiple platforms.
+A Node module to translate words by multiple platforms.
 
 ## Installation
 ```bash
