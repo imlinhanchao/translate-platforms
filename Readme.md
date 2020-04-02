@@ -9,7 +9,7 @@ npm install translate-platforms
 ## Usage
 
 ```javascript
-const { google, microsoft, youdao, baidu } = require('translate.api');
+const { google, microsoft, youdao, baidu } = require('translate-platforms');
 // async/await. The second parameter can be a language name (ISO 639-1)
 const result = await google('Hello world', { to: google.ja });
 console.log(result); 
