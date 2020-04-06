@@ -56,3 +56,9 @@ function translate(word: string, language: { from: string, to: string }): object
 
 ## Language Code
 Each platform supports different translation languages. You can check the interface function properties.
+
+## Support Platform
+Supported platforms are [Google](http://translate.google.com/), [Microsoft](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-translate), [Yandex](https://translate.yandex.com/), [Baidu](https://fanyi.baidu.com/), [Tencent](https://fanyi.qq.com/) and [Youdao](http://fanyi.youdao.com/).
+
+## Notice
+Tencent does not support mutual translation of all languages, you can use the `support` function to get the translation language supported by the language.
