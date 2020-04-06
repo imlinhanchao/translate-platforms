@@ -1,7 +1,6 @@
 const got = require('got');
 
 let tkk = '429175.1243284773';
-let config = {};
 
 // Get Tkk value
 (async () => {
