@@ -3,8 +3,8 @@ const microsoft = require('./microsoft');
 const youdao = require('./youdao');
 const baidu = require('./baidu');
 const yandex = require('./yandex');
-const qq = require('./qq');
+const tencent = require('./tencent');
 
 module.exports = {
-    google, microsoft, youdao, baidu, yandex, qq
+    google, microsoft, youdao, baidu, yandex, tencent
 }
