@@ -85,8 +85,8 @@ async function translate(word, lang) {
         if (lang.from == 'auto') lang.from = translate[2];
         return {
             lang,
-            text: word,
-            word: translate[0].map(t => t[0]).join(''),
+            word,
+            text: translate[0].map(t => t[0]).join(''),
             candidate
         };
     } catch (err) {

@@ -32,8 +32,8 @@ async function translate(word, lang) {
         let candidate = translate.text.slice(1);
         return {
             lang,
-            text: word,
-            word: result,
+            word,
+            text: result,
             candidate
         };
     } catch (err) {

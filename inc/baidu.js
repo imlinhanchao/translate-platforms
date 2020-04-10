@@ -123,8 +123,8 @@ async function translate(word, lang) {
 
         return {
             lang,
-            text: word,
-            word: result,
+            word,
+            text: result,
             candidate
         };
     } catch (err) {

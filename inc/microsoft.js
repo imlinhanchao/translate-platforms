@@ -28,8 +28,8 @@ async function translate(word, lang) {
         if (!lang.from) lang.from = translate.detectedLanguage.language;
         return {
             lang,
-            text: word,
-            word: translate.translations[0].text,
+            word,
+            text: translate.translations[0].text,
             candidate: translate.translations.slice(1).map(t => t.text)
         };
     } catch (err) {
