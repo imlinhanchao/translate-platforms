@@ -1,15 +1,23 @@
 const got = require('got');
 
-const userAgent = 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36';
+const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36';
 
 async function translate(word, lang) {
-    let id = '8579e2a3.5e842118.1116371a-1-0';
     let url = 'https://translate.yandex.net/api/v1/tr.json/translate'
     let rsp;
 
     try {
+        rsp = await got.get('https://translate.yandex.com/', {
+            headers: {
+                'User-Agent': userAgent,
+                Cookie: 'spravka=dD0xNTg2NDk4MDc3O2k9MTEzLjkxLjM0LjEwMTt1PTE1ODY0OTgwNzc5OTIwNTYzNzU7aD1iNzI0YjNhYTg3NjA0YWIyODg4MTUxODRhZjc3NDE3YQ==; domain=.yandex.com; path=/; expires=Sun, 10-May-2020 05:54:37 GMT'
+            }
+        });
+        let sid = rsp.body.match(/SID: '([^']*?)',/)[1];
+        sid = sid.split('.').map(s => s.split('').reverse().join('')).join('.');
+
         if (lang.from == 'auto') {
-            rsp = await got.get(`https://translate.yandex.net/api/v1/tr.json/detect?sid=9ca425c3.5e8ac014.5a186358&srv=tr-text&text=${encodeURI(word)}&options=1`)
+            rsp = await got.get(`https://translate.yandex.net/api/v1/tr.json/detect?sid=${sid}&srv=tr-text&text=${encodeURI(word)}&options=1`)
             lang.from = JSON.parse(rsp.body).lang;
         }
 
@@ -18,7 +26,7 @@ async function translate(word, lang) {
             options:4
         };
 
-        url = `${url}?id=${id}&srv=tr-text&lang=${lang.from}-${lang.to}&reason=auto&format=text`
+        url = `${url}?id=${sid + '-0-0'}&srv=tr-text&lang=${lang.from}-${lang.to}&reason=auto&format=text`
         
         rsp = await got.post(url, {
             form,
