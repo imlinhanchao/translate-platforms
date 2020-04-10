@@ -10,7 +10,6 @@ async function translate(word, lang) {
         rsp = await got.get('https://translate.yandex.com/', {
             headers: {
                 'User-Agent': userAgent,
-                Cookie: 'spravka=dD0xNTg2NDk4MDc3O2k9MTEzLjkxLjM0LjEwMTt1PTE1ODY0OTgwNzc5OTIwNTYzNzU7aD1iNzI0YjNhYTg3NjA0YWIyODg4MTUxODRhZjc3NDE3YQ==; domain=.yandex.com; path=/; expires=Sun, 10-May-2020 05:54:37 GMT'
             }
         });
         let sid = rsp.body.match(/SID: '([^']*?)',/)[1];
