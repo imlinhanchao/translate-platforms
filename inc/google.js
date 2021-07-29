@@ -4,7 +4,7 @@ let tkk = '429175.1243284773';
 
 // Get Tkk value
 (async () => {
-    let url = 'https://translate.google.cn/';
+    let url = `https://translate.google.cn/`;
     let req = await got.get(url);
     let body = req.body;
     let tkkMat = body.match && body.match(/tkk:'([\d.]+)'/);
@@ -70,8 +70,8 @@ function getCandidate(tran) {
     return words;
 }
 
-async function translate(word, lang) {
-    let url = `https://translate.google.cn/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${encodeURIComponent(word)}`
+async function translate(word, lang, region) {
+    let url = `https://translate.google.${region}/translate_a/single?client=webapp&sl=${lang.from}&tl=${lang.to}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&pc=1&otf=1&ssel=0&tsel=0&kc=1&tk=${tk(word, tkk)}&q=${encodeURIComponent(word)}`
 
     try {
         let req = await got.get(url, {
@@ -94,28 +94,30 @@ async function translate(word, lang) {
     }      
 }
 
-module.exports = Object.assign(async (word, { from, to }) => {
+module.exports = Object.assign(async (word, { from, to, region }) => {
     let lang = {
         from: from || 'auto',
-        to: to || 'zh'
+        to: to || 'zh',
     };
 
-    return await translate(word, lang);
-}, {
-    auto: 'auto', 
-    sq: 'sq', ar: 'ar', am: 'am', az: 'az', ga: 'ga', et: 'et', or: 'or', eu: 'eu', 
-    be: 'be', bg: 'bg', is: 'is', pl: 'pl', bs: 'bs', fa: 'fa', af: 'af', tt: 'tt', 
-    da: 'da', de: 'de', ru: 'ru', fr: 'fr', tl: 'tl', fi: 'fi', fy: 'fy', km: 'km', 
-    ka: 'ka', gu: 'gu', kk: 'kk', ht: 'ht', ko: 'ko', ha: 'ha', nl: 'nl', ky: 'ky', 
-    gl: 'gl', ca: 'ca', cs: 'cs', kn: 'kn', co: 'co', hr: 'hr', ku: 'ku', la: 'la', 
-    lv: 'lv', lo: 'lo', lt: 'lt', lb: 'lb', rw: 'rw', ro: 'ro', mg: 'mg', mt: 'mt', 
-    mr: 'mr', ml: 'ml', ms: 'ms', mk: 'mk', mi: 'mi', mn: 'mn', bn: 'bn', my: 'my', 
-    hmn: 'hmn', xh: 'xh', zu: 'zu', ne: 'ne', no: 'no', pa: 'pa', pt: 'pt', ps: 'ps', 
-    ny: 'ny', ja: 'ja', sv: 'sv', sm: 'sm', sr: 'sr', st: 'st', si: 'si', eo: 'eo', 
-    sk: 'sk', sl: 'sl', sw: 'sw', gd: 'gd', ceb: 'ceb', so: 'so', tg: 'tg', te: 'te', 
-    ta: 'ta', th: 'th', tr: 'tr', tk: 'tk', cy: 'cy', ug: 'ug', ur: 'ur', uk: 'uk', 
-    uz: 'uz', es: 'es', iw: 'iw', el: 'el', haw: 'haw', sd: 'sd', hu: 'hu', sn: 'sn', 
-    hy: 'hy', ig: 'ig', it: 'it', yi: 'yi', hi: 'hi', su: 'su', id: 'id', jw: 'jw', 
-    en: 'en', yo: 'yo', vi: 'vi', 'zh-TW': 'zh-TW', 'zh-CN': 'zh-CN', zh: 'zh',
-    'zh-Hans': 'zh-Hans', 'zh-Hant': 'zh-Hant', 
+    return await translate(word, lang, region || 'cn');
+}, { 
+    languages: {
+        auto: 'auto', 
+        sq: 'sq', ar: 'ar', am: 'am', az: 'az', ga: 'ga', et: 'et', or: 'or', eu: 'eu', 
+        be: 'be', bg: 'bg', is: 'is', pl: 'pl', bs: 'bs', fa: 'fa', af: 'af', tt: 'tt', 
+        da: 'da', de: 'de', ru: 'ru', fr: 'fr', tl: 'tl', fi: 'fi', fy: 'fy', km: 'km', 
+        ka: 'ka', gu: 'gu', kk: 'kk', ht: 'ht', ko: 'ko', ha: 'ha', nl: 'nl', ky: 'ky', 
+        gl: 'gl', ca: 'ca', cs: 'cs', kn: 'kn', co: 'co', hr: 'hr', ku: 'ku', la: 'la', 
+        lv: 'lv', lo: 'lo', lt: 'lt', lb: 'lb', rw: 'rw', ro: 'ro', mg: 'mg', mt: 'mt', 
+        mr: 'mr', ml: 'ml', ms: 'ms', mk: 'mk', mi: 'mi', mn: 'mn', bn: 'bn', my: 'my', 
+        hmn: 'hmn', xh: 'xh', zu: 'zu', ne: 'ne', no: 'no', pa: 'pa', pt: 'pt', ps: 'ps', 
+        ny: 'ny', ja: 'ja', sv: 'sv', sm: 'sm', sr: 'sr', st: 'st', si: 'si', eo: 'eo', 
+        sk: 'sk', sl: 'sl', sw: 'sw', gd: 'gd', ceb: 'ceb', so: 'so', tg: 'tg', te: 'te', 
+        ta: 'ta', th: 'th', tr: 'tr', tk: 'tk', cy: 'cy', ug: 'ug', ur: 'ur', uk: 'uk', 
+        uz: 'uz', es: 'es', iw: 'iw', el: 'el', haw: 'haw', sd: 'sd', hu: 'hu', sn: 'sn', 
+        hy: 'hy', ig: 'ig', it: 'it', yi: 'yi', hi: 'hi', su: 'su', id: 'id', jw: 'jw', 
+        en: 'en', yo: 'yo', vi: 'vi', 'zh-TW': 'zh-TW', 'zh-CN': 'zh-CN', zh: 'zh',
+        'zh-Hans': 'zh-Hans', 'zh-Hant': 'zh-Hant', 
+    }
 });

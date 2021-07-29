@@ -24,7 +24,7 @@ function signed(r, gtk) {
         g > 30 && (r = f.slice(0, 10).join('') + f.slice(Math.floor(g / 2) - 5, Math.floor(g / 2) + 5).join('') + f.slice(-10).join(''))
     }
     var u = void 0
-      , l = '' + String.fromCharCode(103) + String.fromCharCode(116) + String.fromCharCode(107);
+        , l = '' + String.fromCharCode(103) + String.fromCharCode(116) + String.fromCharCode(107);
     u = gtk || '';
     for (var d = u.split('.'), m = Number(d[0]) || 0, s = Number(d[1]) || 0, S = [], c = 0, v = 0; v < r.length; v++) {
         var A = r.charCodeAt(v);

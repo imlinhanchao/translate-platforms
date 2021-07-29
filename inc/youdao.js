@@ -76,6 +76,8 @@ module.exports = Object.assign(async (word, { from, to }) => {
 
     return await translate(word, lang);
 }, {
-    auto: 'AUTO', zh: 'zh-CHS', en: 'en', ja: 'ja', ko: 'ko', fr: 'fr', 
-    de: 'de', ru: 'ru', es: 'es', pt: 'pt', it: 'it', vi: 'vi', id: 'id', ar: 'ar'
+    languages: {
+        auto: 'AUTO', zh: 'zh-CHS', en: 'en', ja: 'ja', ko: 'ko', fr: 'fr', 
+        de: 'de', ru: 'ru', es: 'es', pt: 'pt', it: 'it', vi: 'vi', id: 'id', ar: 'ar'
+    }
 });

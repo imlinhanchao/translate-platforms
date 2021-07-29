@@ -4,7 +4,7 @@ async function translate(word, lang) {
     let url = `https://fanyi.qq.com/api/translate`;
     let rsp;
 
-    if (!support(lang.from, lang.to)) throw new Error(`Not support tranlate to language '${lang.to}' from '${lang.from}'`);
+    if (!support(lang.from, lang.to)) throw new Error(`Not support translate to language '${lang.to}' from '${lang.from}'`);
 
     try {
         rsp = await got.get('https://fanyi.qq.com/');
@@ -96,8 +96,10 @@ module.exports = Object.assign(async (word, { from, to }) => {
     };
 
     return await translate(word, lang);
-}, {
-    auto: 'auto', zh: 'zh', en: 'eg', jp: 'hp', kr: 'kr', fr: 'fr', es: 'es', it: 'it',
-    de: 'de', tr: 'tr', ru: 'ru', pt: 'pt', vi: 'vi', id: 'id', th: 'th', ms: 'ms',
-    ar: 'ar', hi: 'hi', support
+}, { 
+    languages: {
+        auto: 'auto', zh: 'zh', en: 'eg', jp: 'hp', kr: 'kr', fr: 'fr', es: 'es', it: 'it',
+        de: 'de', tr: 'tr', ru: 'ru', pt: 'pt', vi: 'vi', id: 'id', th: 'th', ms: 'ms',
+        ar: 'ar', hi: 'hi', support
+    }
 });

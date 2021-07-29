@@ -22,7 +22,7 @@ console.log(result);
 // }
  
 // Promises with .then(). The third parameter is the source language.
-microsoft('こんにちは世界', { to: microsoft.zh }).then(result => {
+microsoft('こんにちは世界', { to: microsoft.languages.zh }).then(result => {
   console.log(result);  
   // Output:
   // { 
@@ -45,6 +45,22 @@ function translate(word: string, language: { from: string, to: string }): object
 |word|The word want to translate.|
 |from|The source language. Default is recognized automatically(`auto`). (Optional)|
 |to|The target language. Default is Chinese(`zh`). (Optional)|
+|region|The target process server. Default is China(`cn`) (Optional)|
+
+### Change region(Google only)
+```javascript
+const { google } = require('translate-platforms');
+
+const result = await google('Hello world', { to: google.languages.ja, region: 'cn' });
+console.log(result); 
+// Output:
+// {
+//     lang: { from: 'en', to: 'ja' },
+//     word: 'Hello world', 
+//     text: 'こんにちは世界', 
+//     candidate: [ 'こんにちは世界', 'こんにちは' ] 
+// }
+```
 
 ### Return Object
 |key|description|
@@ -55,7 +71,7 @@ function translate(word: string, language: { from: string, to: string }): object
 |candidate|Other translate result.|
 
 ## Language Code
-Each platform supports different translation languages. You can check the interface function properties.
+Each platform supports different translation languages. You can check the `<engine>.languages` properties.
 
 ## Support Platform
 Supported platforms are [Google](http://translate.google.com/), [Microsoft](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-translate), [Yandex](https://translate.yandex.com/), [Baidu](https://fanyi.baidu.com/), [Tencent](https://fanyi.qq.com/) and [Youdao](http://fanyi.youdao.com/).
